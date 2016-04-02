@@ -1,1 +1,392 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x2554e5c9, pid=2028, tid=3824
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_66-b17) (build 1.8.0_66-b17)
+# Java VM: Java HotSpot(TM) Client VM (25.66-b17 mixed mode windows-x86 )
+# Problematic frame:
+# C  [opencv_java2411.dll+0x6e5c9]
+#
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x232c3c00):  JavaThread "Finalizer" daemon [_thread_in_native, id=3824, stack(0x234c0000,0x23510000)]
+
+siginfo: ExceptionCode=0xc0000005, writing address 0x27161030
+
+Registers:
+EAX=0xffffffff, EBX=0x00000000, ECX=0x27161030, EDX=0x232c3d40
+ESP=0x2350f888, EBP=0x2350f888, ESI=0x26f81308, EDI=0x00000000
+EIP=0x2554e5c9, EFLAGS=0x00010206
+
+Top of Stack: (sp=0x2350f888)
+0x2350f888:   2350f8a8 254e1475 27161030 ffffffff
+0x2350f898:   232c3c00 26f81308 254ebea2 2350f8c8
+0x2350f8a8:   2350f8d8 00cb751b 232c3d40 2350f8c8
+0x2350f8b8:   26f81308 00000000 2350f8d8 2350f8d8
+0x2350f8c8:   0daab3e8 00000003 0d71c7c0 2350f924
+0x2350f8d8:   2350f9ac 00ca2571 26f81308 00000000
+0x2350f8e8:   25496dd8 0d71c7d8 12018188 00ca2550
+0x2350f8f8:   2350f9ac 00cec464 0d71c7c0 0d71c7b8 
+
+Instructions: (pc=0x2554e5c9)
+0x2554e5a9:   1c 66 40 00 83 c4 04 c7 06 00 00 00 00 5e c3 cc
+0x2554e5b9:   cc cc cc cc cc cc cc 55 8b ec 8b 45 0c 8b 4d 08
+0x2554e5c9:   f0 0f c1 01 5d c3 cc 55 8b ec 6a ff 68 9b 9f 9d
+0x2554e5d9:   25 64 a1 00 00 00 00 50 51 56 57 a1 20 14 c4 25 
+
+
+Register to memory mapping:
+
+EAX=0xffffffff is an unknown value
+EBX=0x00000000 is an unknown value
+ECX=0x27161030 is an unknown value
+EDX=0x232c3d40 is an unknown value
+ESP=0x2350f888 is pointing into the stack for thread: 0x232c3c00
+EBP=0x2350f888 is pointing into the stack for thread: 0x232c3c00
+ESI=0x26f81308 is an unknown value
+EDI=0x00000000 is an unknown value
+
+
+Stack: [0x234c0000,0x23510000],  sp=0x2350f888,  free space=318k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [opencv_java2411.dll+0x6e5c9]
+C  [opencv_java2411.dll+0x1475]
+J 1275  org.opencv.core.Mat.n_delete(J)V (0 bytes) @ 0x00cb751b [0x00cb7490+0x8b]
+J 2775 C1 org.opencv.core.Mat.finalize()V (12 bytes) @ 0x00ca2571 [0x00ca2540+0x31]
+J 2898 C1 java.lang.ref.Finalizer.runFinalizer(Lsun/misc/JavaLangAccess;)V (62 bytes) @ 0x00cec464 [0x00cec2e0+0x184]
+J 1628% C1 java.lang.ref.Finalizer$FinalizerThread.run()V (55 bytes) @ 0x00b5307d [0x00b52de0+0x29d]
+v  ~StubRoutines::call_stub
+V  [jvm.dll+0x158ba5]
+V  [jvm.dll+0x21e12e]
+V  [jvm.dll+0x158c3e]
+V  [jvm.dll+0x158dc6]
+V  [jvm.dll+0x158e37]
+V  [jvm.dll+0xfd84f]
+V  [jvm.dll+0x17c07c]
+V  [jvm.dll+0x17c16a]
+V  [jvm.dll+0x1c06f6]
+C  [MSVCR100.dll+0x5c556]
+C  [MSVCR100.dll+0x5c600]
+C  [kernel32.dll+0xb713]
+C  0x00000000
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+J 1275  org.opencv.core.Mat.n_delete(J)V (0 bytes) @ 0x00cb74d7 [0x00cb7490+0x47]
+J 2775 C1 org.opencv.core.Mat.finalize()V (12 bytes) @ 0x00ca2571 [0x00ca2540+0x31]
+J 2898 C1 java.lang.ref.Finalizer.runFinalizer(Lsun/misc/JavaLangAccess;)V (62 bytes) @ 0x00cec464 [0x00cec2e0+0x184]
+J 1628% C1 java.lang.ref.Finalizer$FinalizerThread.run()V (55 bytes) @ 0x00b5307d [0x00b52de0+0x29d]
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x2496d000 JavaThread "Thread-16" [_thread_in_native, id=3516, stack(0x26ca0000,0x26cf0000)]
+  0x248f4000 JavaThread "pool-4-thread-1" [_thread_blocked, id=1164, stack(0x26ee0000,0x26f30000)]
+  0x23706800 JavaThread "Thread-10" [_thread_in_native, id=3468, stack(0x26e90000,0x26ee0000)]
+  0x2496a400 JavaThread "pool-3-thread-1" [_thread_blocked, id=3744, stack(0x25ed0000,0x25f20000)]
+  0x2495c000 JavaThread "pool-2-thread-1" [_thread_blocked, id=4040, stack(0x25280000,0x252d0000)]
+  0x24c2e800 JavaThread "TimerQueue" daemon [_thread_blocked, id=2292, stack(0x250d0000,0x25120000)]
+  0x23934000 JavaThread "Batik CleanerThread" daemon [_thread_blocked, id=3612, stack(0x245d0000,0x24620000)]
+  0x237d4400 JavaThread "AWT-EventQueue-0" [_thread_blocked, id=3492, stack(0x24280000,0x242d0000)]
+  0x23752400 JavaThread "AWT-Windows" daemon [_thread_in_native, id=3836, stack(0x23c70000,0x23cc0000)]
+  0x23751000 JavaThread "AWT-Shutdown" [_thread_blocked, id=3368, stack(0x23c20000,0x23c70000)]
+  0x2374fc00 JavaThread "Java2D Disposer" daemon [_thread_blocked, id=2588, stack(0x23bd0000,0x23c20000)]
+  0x232f9000 JavaThread "Service Thread" daemon [_thread_blocked, id=2272, stack(0x23600000,0x23650000)]
+  0x232d6400 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=3752, stack(0x235b0000,0x23600000)]
+  0x232d4c00 JavaThread "Attach Listener" daemon [_thread_blocked, id=2792, stack(0x23560000,0x235b0000)]
+  0x232d3800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=1948, stack(0x23510000,0x23560000)]
+=>0x232c3c00 JavaThread "Finalizer" daemon [_thread_in_native, id=3824, stack(0x234c0000,0x23510000)]
+  0x02bdbc00 JavaThread "Reference Handler" daemon [_thread_blocked, id=2504, stack(0x23270000,0x232c0000)]
+  0x003db000 JavaThread "main" [_thread_blocked, id=3316, stack(0x00030000,0x00080000)]
+
+Other Threads:
+  0x02bd8400 VMThread [stack: 0x23220000,0x23270000] [id=1408]
+  0x2330dc00 WatcherThread [stack: 0x23650000,0x236a0000] [id=1900]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ def new generation   total 61632K, used 15325K [0x02c00000, 0x06ee0000, 0x0d6a0000)
+  eden space 54784K,  27% used [0x02c00000, 0x03af7740, 0x06180000)
+  from space 6848K,   0% used [0x06180000, 0x06180000, 0x06830000)
+  to   space 6848K,   0% used [0x06830000, 0x06830000, 0x06ee0000)
+ tenured generation   total 136828K, used 82095K [0x0d6a0000, 0x15c3f000, 0x22c00000)
+   the space 136828K,  59% used [0x0d6a0000, 0x126cbf00, 0x126cc000, 0x15c3f000)
+ Metaspace       used 16497K, capacity 16745K, committed 16896K, reserved 17792K
+
+Card table byte_map: [0x22c00000,0x22d10000] byte_map_base: 0x22bea000
+
+Polling page: 0x003f0000
+
+CodeCache: size=32768Kb used=1695Kb max_used=2731Kb free=31072Kb
+ bounds [0x00a60000, 0x00d10000, 0x02a60000]
+ total_blobs=1089 nmethods=736 adapters=284
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 2564.441 Thread 0x232d6400 2986             java.awt.image.DirectColorModel::getGreen (45 bytes)
+Event: 2564.441 Thread 0x232d6400 nmethod 2986 0x00bfa808 code [0x00bfa960, 0x00bfab04]
+Event: 2564.441 Thread 0x232d6400 2987             java.awt.image.DirectColorModel::getBlue (45 bytes)
+Event: 2564.442 Thread 0x232d6400 nmethod 2987 0x00bfa388 code [0x00bfa4e0, 0x00bfa684]
+Event: 2564.442 Thread 0x232d6400 2988             javax.swing.GrayFilter::filterRGB (136 bytes)
+Event: 2564.442 Thread 0x232d6400 nmethod 2988 0x00b53b48 code [0x00b53c80, 0x00b53e40]
+Event: 2564.489 Thread 0x232d6400 2989             com.sun.java.swing.plaf.windows.TMSchema$TypeEnum::getTypeEnum (51 bytes)
+Event: 2564.490 Thread 0x232d6400 nmethod 2989 0x00bfa048 code [0x00bfa160, 0x00bfa27c]
+Event: 2564.493 Thread 0x232d6400 2990             sun.java2d.SunGraphics2D::transformShape (97 bytes)
+Event: 2564.494 Thread 0x232d6400 nmethod 2990 0x00bf9788 code [0x00bf9910, 0x00bf9d3c]
+
+GC Heap History (10 events):
+Event: 2557.397 GC heap before
+{Heap before GC invocations=1720 (full 4):
+ def new generation   total 57216K, used 51483K [0x02c00000, 0x06a10000, 0x0d6a0000)
+  eden space 50880K,  99% used [0x02c00000, 0x05d649a8, 0x05db0000)
+  from space 6336K,  14% used [0x05db0000, 0x05e92540, 0x063e0000)
+  to   space 6336K,   0% used [0x063e0000, 0x063e0000, 0x06a10000)
+ tenured generation   total 126944K, used 125753K [0x0d6a0000, 0x15298000, 0x22c00000)
+   the space 126944K,  99% used [0x0d6a0000, 0x1516e4b8, 0x1516e600, 0x15298000)
+ Metaspace       used 16505K, capacity 16757K, committed 16896K, reserved 17792K
+Event: 2557.401 GC heap after
+Heap after GC invocations=1721 (full 4):
+ def new generation   total 57216K, used 905K [0x02c00000, 0x06a10000, 0x0d6a0000)
+  eden space 50880K,   0% used [0x02c00000, 0x02c00000, 0x05db0000)
+  from space 6336K,  14% used [0x063e0000, 0x064c2540, 0x06a10000)
+  to   space 6336K,   0% used [0x05db0000, 0x05db0000, 0x063e0000)
+ tenured generation   total 126944K, used 125753K [0x0d6a0000, 0x15298000, 0x22c00000)
+   the space 126944K,  99% used [0x0d6a0000, 0x1516e4b8, 0x1516e600, 0x15298000)
+ Metaspace       used 16505K, capacity 16757K, committed 16896K, reserved 17792K
+}
+Event: 2559.003 GC heap before
+{Heap before GC invocations=1721 (full 4):
+ def new generation   total 57216K, used 51481K [0x02c00000, 0x06a10000, 0x0d6a0000)
+  eden space 50880K,  99% used [0x02c00000, 0x05d64178, 0x05db0000)
+  from space 6336K,  14% used [0x063e0000, 0x064c2540, 0x06a10000)
+  to   space 6336K,   0% used [0x05db0000, 0x05db0000, 0x063e0000)
+ tenured generation   total 126944K, used 125753K [0x0d6a0000, 0x15298000, 0x22c00000)
+   the space 126944K,  99% used [0x0d6a0000, 0x1516e4b8, 0x1516e600, 0x15298000)
+ Metaspace       used 16505K, capacity 16757K, committed 16896K, reserved 17792K
+Event: 2559.007 GC heap after
+Heap after GC invocations=1722 (full 4):
+ def new generation   total 57216K, used 905K [0x02c00000, 0x06a10000, 0x0d6a0000)
+  eden space 50880K,   0% used [0x02c00000, 0x02c00000, 0x05db0000)
+  from space 6336K,  14% used [0x05db0000, 0x05e924f0, 0x063e0000)
+  to   space 6336K,   0% used [0x063e0000, 0x063e0000, 0x06a10000)
+ tenured generation   total 126944K, used 125753K [0x0d6a0000, 0x15298000, 0x22c00000)
+   the space 126944K,  99% used [0x0d6a0000, 0x1516e4b8, 0x1516e600, 0x15298000)
+ Metaspace       used 16505K, capacity 16757K, committed 16896K, reserved 17792K
+}
+Event: 2560.654 GC heap before
+{Heap before GC invocations=1722 (full 4):
+ def new generation   total 57216K, used 51481K [0x02c00000, 0x06a10000, 0x0d6a0000)
+  eden space 50880K,  99% used [0x02c00000, 0x05d64180, 0x05db0000)
+  from space 6336K,  14% used [0x05db0000, 0x05e924f0, 0x063e0000)
+  to   space 6336K,   0% used [0x063e0000, 0x063e0000, 0x06a10000)
+ tenured generation   total 126944K, used 125753K [0x0d6a0000, 0x15298000, 0x22c00000)
+   the space 126944K,  99% used [0x0d6a0000, 0x1516e4b8, 0x1516e600, 0x15298000)
+ Metaspace       used 16505K, capacity 16757K, committed 16896K, reserved 17792K
+Event: 2560.659 GC heap after
+Heap after GC invocations=1723 (full 4):
+ def new generation   total 57216K, used 905K [0x02c00000, 0x06a10000, 0x0d6a0000)
+  eden space 50880K,   0% used [0x02c00000, 0x02c00000, 0x05db0000)
+  from space 6336K,  14% used [0x063e0000, 0x064c24f0, 0x06a10000)
+  to   space 6336K,   0% used [0x05db0000, 0x05db0000, 0x063e0000)
+ tenured generation   total 126944K, used 125753K [0x0d6a0000, 0x15298000, 0x22c00000)
+   the space 126944K,  99% used [0x0d6a0000, 0x1516e4b8, 0x1516e600, 0x15298000)
+ Metaspace       used 16505K, capacity 16757K, committed 16896K, reserved 17792K
+}
+Event: 2562.355 GC heap before
+{Heap before GC invocations=1723 (full 4):
+ def new generation   total 57216K, used 52064K [0x02c00000, 0x06a10000, 0x0d6a0000)
+  eden space 50880K,  98% used [0x02c00000, 0x05d14c30, 0x05db0000)
+  from space 6336K,  28% used [0x063e0000, 0x065a3500, 0x06a10000)
+  to   space 6336K,   0% used [0x05db0000, 0x05db0000, 0x063e0000)
+ tenured generation   total 126944K, used 125753K [0x0d6a0000, 0x15298000, 0x22c00000)
+   the space 126944K,  99% used [0x0d6a0000, 0x1516e4b8, 0x1516e600, 0x15298000)
+ Metaspace       used 16505K, capacity 16757K, committed 16896K, reserved 17792K
+Event: 2562.375 GC heap after
+Heap after GC invocations=1724 (full 4):
+ def new generation   total 57216K, used 6280K [0x02c00000, 0x06a10000, 0x0d6a0000)
+  eden space 50880K,   0% used [0x02c00000, 0x02c00000, 0x05db0000)
+  from space 6336K,  99% used [0x05db0000, 0x063d20a0, 0x063e0000)
+  to   space 6336K,   0% used [0x063e0000, 0x063e0000, 0x06a10000)
+ tenured generation   total 128032K, used 127377K [0x0d6a0000, 0x153a8000, 0x22c00000)
+   the space 128032K,  99% used [0x0d6a0000, 0x15304738, 0x15304800, 0x153a8000)
+ Metaspace       used 16505K, capacity 16757K, committed 16896K, reserved 17792K
+}
+Event: 2564.284 GC heap before
+{Heap before GC invocations=1724 (full 4):
+ def new generation   total 57216K, used 56552K [0x02c00000, 0x06a10000, 0x0d6a0000)
+  eden space 50880K,  98% used [0x02c00000, 0x05d180a8, 0x05db0000)
+  from space 6336K,  99% used [0x05db0000, 0x063d20a0, 0x063e0000)
+  to   space 6336K,   0% used [0x063e0000, 0x063e0000, 0x06a10000)
+ tenured generation   total 128032K, used 127377K [0x0d6a0000, 0x153a8000, 0x22c00000)
+   the space 128032K,  99% used [0x0d6a0000, 0x15304738, 0x15304800, 0x153a8000)
+ Metaspace       used 16505K, capacity 16757K, committed 16896K, reserved 17792K
+Event: 2564.389 GC heap after
+Heap after GC invocations=1725 (full 5):
+ def new generation   total 61632K, used 0K [0x02c00000, 0x06ee0000, 0x0d6a0000)
+  eden space 54784K,   0% used [0x02c00000, 0x02c00000, 0x06180000)
+  from space 6848K,   0% used [0x06180000, 0x06180000, 0x06830000)
+  to   space 6848K,   0% used [0x06830000, 0x06830000, 0x06ee0000)
+ tenured generation   total 136828K, used 82095K [0x0d6a0000, 0x15c3f000, 0x22c00000)
+   the space 136828K,  59% used [0x0d6a0000, 0x126cbf00, 0x126cc000, 0x15c3f000)
+ Metaspace       used 16497K, capacity 16745K, committed 16896K, reserved 17792K
+}
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 1305.216 Thread 0x237d4400 Exception <a 'java/lang/ClassNotFoundException': org/openpnp/machine/reference/camera/OpenCvCameraCustomizer> (0x02d55ce0) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u66\4988\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 1305.217 Thread 0x237d4400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x02d6a2e0) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u66\4988\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 1305.218 Thread 0x237d4400 Exception <a 'java/lang/ClassNotFoundException': org/openpnp/spi/base/AbstractCameraCustomizer> (0x02d74aa0) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u66\4988\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 1305.219 Thread 0x237d4400 Exception <a 'java/lang/ClassNotFoundException': org/openpnp/machine/reference/ReferenceCameraCustomizer> (0x02d8e258) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u66\4988\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 1305.219 Thread 0x237d4400 Exception <a 'java/lang/ClassNotFoundException': org/openpnp/machine/reference/camera/OpenCvCameraCustomizer> (0x02dabc48) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u66\4988\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 1305.229 Thread 0x2496d000 Exception <a 'java/lang/InterruptedException': sleep interrupted> (0x02ead788) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u66\4988\hotspot\src\share\vm\prims\jvm.cpp, line 3167]
+Event: 1305.472 Thread 0x237d4400 Exception <a 'java/lang/ClassNotFoundException': java/lang/ObjectCustomizer> (0x02dc04a0) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u66\4988\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 1305.473 Thread 0x237d4400 Exception <a 'java/lang/ClassNotFoundException': org/openpnp/spi/base/AbstractCameraCustomizer> (0x02dcac60) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u66\4988\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 1305.474 Thread 0x237d4400 Exception <a 'java/lang/ClassNotFoundException': org/openpnp/machine/reference/ReferenceCameraCustomizer> (0x02ecf110) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u66\4988\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+Event: 1305.475 Thread 0x237d4400 Exception <a 'java/lang/ClassNotFoundException': org/openpnp/machine/reference/camera/OpenCvCameraCustomizer> (0x02eecab8) thrown at [C:\re\workspace\8-2-build-windows-i586-cygwin\jdk8u66\4988\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 210]
+
+Events (10 events):
+Event: 2564.434 Thread 0x232d6400 flushing nmethod 0x00b07348
+Event: 2564.434 Thread 0x232d6400 flushing nmethod 0x00b53b48
+Event: 2564.491 Executing VM operation: BulkRevokeBias
+Event: 2564.492 Executing VM operation: BulkRevokeBias done
+Event: 2564.494 Thread 0x232d6400 flushing nmethod 0x00b0ffc8
+Event: 2564.494 Thread 0x232d6400 flushing nmethod 0x00b42c48
+Event: 2564.494 Thread 0x232d6400 flushing nmethod 0x00b5a448
+Event: 2564.494 Thread 0x232d6400 flushing nmethod 0x00b667c8
+Event: 2564.494 Thread 0x232d6400 flushing nmethod 0x00b6c748
+Event: 2564.509 Thread 0x24913400 Thread exited: 0x24913400
+
+
+Dynamic libraries:
+0x00400000 - 0x0045e000 	C:\Programme\openpnp\OpenPnP.exe
+0x7c910000 - 0x7c9c6000 	C:\WINDOWS\system32\ntdll.dll
+0x7c800000 - 0x7c908000 	C:\WINDOWS\system32\kernel32.dll
+0x7e360000 - 0x7e3f1000 	C:\WINDOWS\system32\USER32.dll
+0x77ef0000 - 0x77f39000 	C:\WINDOWS\system32\GDI32.dll
+0x77da0000 - 0x77e4a000 	C:\WINDOWS\system32\ADVAPI32.dll
+0x77e50000 - 0x77ee2000 	C:\WINDOWS\system32\RPCRT4.dll
+0x77fc0000 - 0x77fd1000 	C:\WINDOWS\system32\Secur32.dll
+0x773a0000 - 0x774a3000 	C:\WINDOWS\WinSxS\X86_Microsoft.Windows.Common-Controls....\COMCTL32.dll
+0x77be0000 - 0x77c38000 	C:\WINDOWS\system32\msvcrt.dll
+0x77f40000 - 0x77fb6000 	C:\WINDOWS\system32\SHLWAPI.dll
+0x6d160000 - 0x6d525000 	c:\programme\openpnp\jre\bin\client\jvm.dll
+0x71a30000 - 0x71a3a000 	C:\WINDOWS\system32\WSOCK32.dll
+0x71a10000 - 0x71a27000 	C:\WINDOWS\system32\WS2_32.dll
+0x71a00000 - 0x71a08000 	C:\WINDOWS\system32\WS2HELP.dll
+0x76af0000 - 0x76b1e000 	C:\WINDOWS\system32\WINMM.dll
+0x77bd0000 - 0x77bd8000 	C:\WINDOWS\system32\VERSION.dll
+0x76bb0000 - 0x76bbb000 	C:\WINDOWS\system32\PSAPI.DLL
+0x78aa0000 - 0x78b5f000 	C:\WINDOWS\system32\MSVCR100.dll
+0x70090000 - 0x7009c000 	c:\programme\openpnp\jre\bin\verify.dll
+0x6da10000 - 0x6da31000 	c:\programme\openpnp\jre\bin\java.dll
+0x70120000 - 0x70133000 	c:\programme\openpnp\jre\bin\zip.dll
+0x7e670000 - 0x7ee91000 	C:\WINDOWS\system32\SHELL32.dll
+0x76620000 - 0x766d6000 	C:\WINDOWS\system32\USERENV.dll
+0x23aa0000 - 0x23abf000 	C:\Programme\openpnp\.install4j\i4jinst.dll
+0x770f0000 - 0x7717b000 	C:\WINDOWS\system32\OLEAUT32.dll
+0x774b0000 - 0x775ed000 	C:\WINDOWS\system32\ole32.dll
+0x6d000000 - 0x6d145000 	C:\Programme\openpnp\jre\bin\awt.dll
+0x5b0f0000 - 0x5b128000 	C:\WINDOWS\system32\uxtheme.dll
+0x63000000 - 0x63014000 	C:\WINDOWS\system32\SynTPFcs.dll
+0x746a0000 - 0x746ec000 	C:\WINDOWS\system32\MSCTF.dll
+0x6d7e0000 - 0x6d819000 	C:\Programme\openpnp\jre\bin\fontmanager.dll
+0x6fe80000 - 0x6fe96000 	C:\Programme\openpnp\jre\bin\net.dll
+0x6fea0000 - 0x6feaf000 	C:\Programme\openpnp\jre\bin\nio.dll
+0x719b0000 - 0x719f0000 	C:\WINDOWS\system32\MSWSOCK.dll
+0x70040000 - 0x70070000 	C:\Programme\openpnp\jre\bin\t2k.dll
+0x6d530000 - 0x6d554000 	C:\Programme\openpnp\jre\bin\dcpr.dll
+0x5d450000 - 0x5d4ea000 	C:\WINDOWS\system32\comctl32.dll
+0x68000000 - 0x68036000 	C:\WINDOWS\system32\rsaenh.dll
+0x597d0000 - 0x59825000 	C:\WINDOWS\system32\netapi32.dll
+0x76d20000 - 0x76d39000 	C:\WINDOWS\system32\IPHLPAPI.DLL
+0x76d00000 - 0x76d18000 	C:\WINDOWS\system32\MPRAPI.dll
+0x77c90000 - 0x77cc2000 	C:\WINDOWS\system32\ACTIVEDS.dll
+0x76dd0000 - 0x76df5000 	C:\WINDOWS\system32\adsldpc.dll
+0x76f20000 - 0x76f4d000 	C:\WINDOWS\system32\WLDAP32.dll
+0x76ad0000 - 0x76ae1000 	C:\WINDOWS\system32\ATL.DLL
+0x76e40000 - 0x76e4e000 	C:\WINDOWS\system32\rtutils.dll
+0x71b70000 - 0x71b83000 	C:\WINDOWS\system32\SAMLIB.dll
+0x778f0000 - 0x779e4000 	C:\WINDOWS\system32\SETUPAPI.dll
+0x254e0000 - 0x25d2d000 	C:\Dokumente und Einstellungen\_username_\Lokale Einstellungen\Temp\748354241074117157\nu\pattern\opencv\windows\x86_32\opencv_java2411.dll
+0x73ac0000 - 0x73ad7000 	C:\WINDOWS\system32\AVIFIL32.dll
+0x77bb0000 - 0x77bc5000 	C:\WINDOWS\system32\MSACM32.dll
+0x75ec0000 - 0x75ee1000 	C:\WINDOWS\system32\MSVFW32.dll
+0x73af0000 - 0x73b03000 	C:\WINDOWS\system32\AVICAP32.dll
+0x76f90000 - 0x7700f000 	C:\WINDOWS\system32\CLBCATQ.DLL
+0x77010000 - 0x770e3000 	C:\WINDOWS\system32\COMRes.dll
+0x765f0000 - 0x76601000 	C:\WINDOWS\System32\devenum.dll
+0x76bf0000 - 0x76c1e000 	C:\WINDOWS\system32\WINTRUST.dll
+0x77a50000 - 0x77ae6000 	C:\WINDOWS\system32\CRYPT32.dll
+0x77af0000 - 0x77b02000 	C:\WINDOWS\system32\MSASN1.dll
+0x76c50000 - 0x76c78000 	C:\WINDOWS\system32\IMAGEHLP.dll
+0x73620000 - 0x73627000 	C:\WINDOWS\system32\msdmo.dll
+0x75bb0000 - 0x75be2000 	C:\WINDOWS\System32\qcap.dll
+0x74790000 - 0x748fe000 	C:\WINDOWS\System32\quartz.dll
+0x6cbd0000 - 0x6cbf3000 	C:\WINDOWS\system32\ksproxy.ax
+0x73e40000 - 0x73e44000 	C:\WINDOWS\system32\ksuser.dll
+0x6ff70000 - 0x6ff7a000 	C:\WINDOWS\system32\vidcap.ax
+0x58380000 - 0x58399000 	C:\WINDOWS\system32\kswdmcap.ax
+0x73d30000 - 0x73e2e000 	C:\WINDOWS\system32\MFC42.DLL
+0x61dc0000 - 0x61dce000 	C:\WINDOWS\system32\MFC42LOC.DLL
+0x66b80000 - 0x66c0c000 	C:\WINDOWS\System32\qedit.dll
+0x76350000 - 0x7639a000 	C:\WINDOWS\system32\comdlg32.dll
+0x736d0000 - 0x7371b000 	C:\WINDOWS\system32\DDRAW.dll
+0x73b30000 - 0x73b36000 	C:\WINDOWS\system32\DCIMAN32.dll
+0x738b0000 - 0x73980000 	C:\WINDOWS\system32\D3DIM700.DLL
+0x76330000 - 0x7634d000 	C:\WINDOWS\system32\IMM32.dll
+0x66710000 - 0x66769000 	C:\WINDOWS\system32\hnetcfg.dll
+0x719f0000 - 0x719f8000 	C:\WINDOWS\System32\wshtcpip.dll
+0x27080000 - 0x27359000 	C:\WINDOWS\system32\xpsp2res.dll
+0x735f0000 - 0x735f8000 	C:\WINDOWS\system32\msyuv.dll
+0x59dd0000 - 0x59e71000 	C:\WINDOWS\system32\dbghelp.dll
+
+VM Arguments:
+jvm_args: -Dexe4j.semaphoreName=Local\c:_programme_openpnp_openpnp.exe -Dexe4j.isInstall4j=true -Dexe4j.moduleName=C:\Programme\openpnp\OpenPnP.exe -Dexe4j.tempDir= -Dexe4j.unextractedPosition=0 -Djava.library.path=C:\Programme\openpnp\.\native\windows\x86;;c:\programme\openpnp\jre\bin -Dexe4j.consoleCodepage=cp0 -Dinstall4j.launcherId=23 -Dinstall4j.swt=false -Xmx512m 
+java_command: C:\Programme\openpnp\OpenPnP.exe
+java_class_path (initial): C:\Programme\openpnp\.install4j\i4jruntime.jar;C:\Programme\openpnp\.\openpnp-gui-0.0.1-alpha-SNAPSHOT.jar;C:\Programme\openpnp\.\lib\avalon-framework-api-4.3.1.jar;C:\Programme\openpnp\.\lib\avalon-framework-impl-4.3.1.jar;C:\Programme\openpnp\.\lib\batik-anim-1.7.jar;C:\Programme\openpnp\.\lib\batik-awt-util-1.7.jar;C:\Programme\openpnp\.\lib\batik-bridge-1.7.jar;C:\Programme\openpnp\.\lib\batik-css-1.7.jar;C:\Programme\openpnp\.\lib\batik-dom-1.7.jar;C:\Programme\openpnp\.\lib\batik-ext-1.7.jar;C:\Programme\openpnp\.\lib\batik-gvt-1.7.jar;C:\Programme\openpnp\.\lib\batik-js-1.7.jar;C:\Programme\openpnp\.\lib\batik-parser-1.7.jar;C:\Programme\openpnp\.\lib\batik-script-1.7.jar;C:\Programme\openpnp\.\lib\batik-svg-dom-1.7.jar;C:\Programme\openpnp\.\lib\batik-svggen-1.7.jar;C:\Programme\openpnp\.\lib\batik-transcoder-1.7.jar;C:\Programme\openpnp\.\lib\batik-util-1.7.jar;C:\Programme\openpnp\.\lib\batik-xml-1.7.jar;C:\Programme\openpnp\.\lib\beansbinding-1.2.1.jar;C:\Programme\openpnp\.\lib\bridj-0.6.2.jar;C:\Programme\openpnp\.\lib\commons-codec-1.6.jar;C:\Programme\openpnp\.\lib\commons-io-2.1.jar;C:\Programme\openpnp\.\lib\commons-logging-1.0.4.jar;C:\Programme\openpnp\.\lib\core-2.2.jar;C:\Programme\openpnp\.\lib\fop-0.94.jar;C:\Programme\openpnp\.\lib\gson-2.2.3.jar;C:\Programme\openpnp\.\lib\guava-14.0.1.jar;C:\Programme\openpnp\.\lib\hamcrest-core-1.3.jar;C:\Programme\openpnp\.\lib\javase-2.2.jar;C:\Programme\openpnp\.\lib\jcodec-0.1.9.jar;C:\Programme\openpnp\.\lib\jcodec-javase-0.1.9.jar;C:\Programme\openpnp\.\lib\jgoodies-common-1.8.0.jar;C:\Programme\openpnp\.\lib\jgoodies-forms-1.8.0.jar;C:\Programme\openpnp\.\lib\jssc-2.8.0.jar;C:\Programme\openpnp\.\lib\junit-4.11.jar;C:\Programme\openpnp\.\lib\jvfw-0.0.2.jar;C:\Programme\openpnp\.\lib\l2fprod-common-annotations-1.0.3.jar;C:\Programme\openpnp\.\lib\l2fprod-properties-editor-1.0.3.jar;C:\Programme\openpnp\.\lib\log4j-1.2.16.jar;C:\Programme\openpnp\.\lib\lti-civil-20070920-17
+Launcher Type: generic
+
+Environment Variables:
+PATH=C:\Programme\openpnp\.\native\windows\x86;;c:\programme\openpnp\jre\bin
+USERNAME=_username_
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=x86 Family 6 Model 9 Stepping 5, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 5.1 Build 2600 (5.1.2600.5512)
+
+CPU:total 1 (1 cores per cpu, 1 threads per core) family 6 model 9 stepping 5, cmov, cx8, fxsr, mmx, sse, sse2, tsc
+
+Memory: 4k page, physical 2096112k(1364300k free), swap 4038812k(3449372k free)
+
+vm_info: Java HotSpot(TM) Client VM (25.66-b17) for windows-x86 JRE (1.8.0_66-b17), built on Oct  6 2015 19:59:47 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Mon Mar 28 12:21:40 2016
+elapsed time: 2564 seconds (0d 0h 42m 44s)
+
+
+
+
+---------snip-snap----------
+----------------------------
+----------------------------
+----------------------------
+
 mein index file (manuell erzeugt) ... schaun 'mer mal was passiert
